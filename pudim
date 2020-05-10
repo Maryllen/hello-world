@@ -1,0 +1,153 @@
+define player = Character("[nomeplayer]")
+
+define ser = Character("Meng Na")
+
+define mãe = Character("Anne")
+
+define pai = Character("Fabrício")
+
+define irmão = Character("Matheus")
+
+define p = Character("Pedro")
+
+define c = Character("Cinthia")
+
+define marc = Character("Marcela")
+
+define lu = Character("Lucas")
+
+image ser = "images/mengg.png"
+
+image bgpark = "bgpark.jpg"
+
+image ruas = "ruas.jpg"
+
+image quarto1 = "images/quartomanha1.png"
+
+image banheiro1 = "images/banheiro1.png"
+
+image café1 = "images/mesacafe.png"
+
+image celparede = "images/galáxia.png"
+
+default desenho = False
+
+default esporte = False
+
+default livros = False
+#esses 3 vão definir a rota
+default aula = False
+
+default grupo = False
+#esses 2 o local
+default bolacha = False
+
+default banhonope = False
+
+default tarefanope = False
+
+#default opção01 = False
+#tentando tirar as opções do menu dps de escolhidas
+
+label start:
+    play music "None.wav"
+
+    $ escolhas = 0
+
+    $ food = 0
+
+    $ desenhoponto = 0
+
+    $ esporteponto = 0
+
+    $ livroponto = 0
+#vão definir o final da rota
+    play music "awe.mp3"
+
+    scene bgpark
+
+    show ser
+
+    ser "Ei, ei! Você está bem?"
+
+    ser "Ah! É você! Como era mesmo? Red? Green?"
+
+label menunome:
+    $ nomeplayer = renpy.input ("Você é? - Escreva seu nome aqui:")
+
+    if nomeplayer == "":
+        jump menunome
+        #$ nomeplayer="Yuki" O DE CIMA FUNCIONOU, É OBRIGATÓRIO O NOME!
+
+    ser "Ah, isso! %(nomeplayer)s."
+
+    player "..."
+
+    ser "..."
+
+menu menu1:
+    #"Ãhn?":
+    #    jump opção1
+        #    if opção1 == True:
+
+    "Como assim?":
+        #$ opção01 = True
+        jump opção1
+
+    "Onde estou?":
+        jump opção3
+
+    "Quem é você?":
+        jump opção4
+
+    "Você é bonita\(o\).":
+        jump opção5
+
+
+label opção1:
+    ser "...Você vai entender depois..."
+    $ escolhas += 1
+
+if escolhas < 4:
+    jump menu1
+
+if escolhas >= 4:
+    jump game
+
+#if opção01 == True:
+    #menu01:
+        #"Onde estou?"
+        #    jump opção3s
+#ver um jeito pra q cada opção escolhida seja desabilitada e q o player faça tds as perguntas
+
+label opção3:
+    ser "Oh, certo. Você está dentro e fora do Universo, existindo e não existindo... Mentira. Você está-"
+    $ escolhas += 1
+
+if escolhas < 4:
+        jump menu1
+
+if escolhas >= 4:
+            jump game
+
+
+label opção4:
+    ser "...Sua Fada Madrinha!...Bem que queria... Mas te respondendo, você já me conhece."
+    $ escolhas += 1
+
+if escolhas < 4:
+        jump menu1
+
+if escolhas >= 4:
+            jump game
+
+
+label opção5:
+    ser "Awnnnn...Eu sei>w<. "
+    $ escolhas += 1
+
+if escolhas < 4:
+        jump menu1
+
+if escolhas >= 4:
+            jump game
